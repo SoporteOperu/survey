@@ -6,7 +6,7 @@
     "version": "13.0.1.0.0",
     "maintainers": ["pesol"],
     "category": "Survey",
-    "website": "https://pesol.es",
+    "website": "https://github.com/OCA/survey",
     "author": "Pesol <pedro.gonzalez@pesol.es>, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,

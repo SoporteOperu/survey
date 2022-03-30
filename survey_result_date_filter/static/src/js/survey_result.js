@@ -1,4 +1,4 @@
-odoo.define("survey.date_filter", function() {
+odoo.define("survey.date_filter", function () {
     "use strict";
 
     if (!$(".js_surveyresult").length) {
@@ -9,13 +9,9 @@ odoo.define("survey.date_filter", function() {
         "[survey_result_date_filter] Survey Result Date Filter is loading..."
     );
 
-    $(".js_surveyresult #filter_date").click(function() {
-        var date_from = $("div#datetimepicker_from")
-            .find("input.form-control")
-            .val();
-        var date_end = $("div#datetimepicker_end")
-            .find("input.form-control")
-            .val();
+    $(".js_surveyresult #filter_date").click(function () {
+        var date_from = $("div#datetimepicker_from").find("input.form-control").val();
+        var date_end = $("div#datetimepicker_end").find("input.form-control").val();
         // Find by different date format
         var re_date_from = new RegExp("[&?]date_from=[0-9]*[-./][0-9]*[-./][0-9]*");
         var re_date_end = new RegExp("[&?]date_end=[0-9]*[-./][0-9]*[-./][0-9]*");
@@ -55,7 +51,7 @@ odoo.define("survey.date_filter", function() {
         window.location.href = URL;
     });
 
-    $(".js_surveyresult .date-range-filter i.fa-calendar").on("click", function(e) {
+    $(".js_surveyresult .date-range-filter i.fa-calendar").on("click", function (e) {
         // Get date format from attribute in the view
         var date_format = $(this)
             .closest("div.date")
@@ -75,10 +71,7 @@ odoo.define("survey.date_filter", function() {
                     down: "fa fa-chevron-down",
                 },
             });
-        $(e.currentTarget)
-            .closest("div.date")
-            .find("input")
-            .datetimepicker("show");
+        $(e.currentTarget).closest("div.date").find("input").datetimepicker("show");
     });
 
     console.debug("[survey_result_date_filter]  Survey Result Date Filter is loaded!");

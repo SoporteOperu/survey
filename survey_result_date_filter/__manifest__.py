@@ -3,7 +3,7 @@
 {
     "name": "Survey Result Date Filter",
     "summary": "Introduce a filtering section in Survey Result",
-    "version": "13.0.1.0.0",
+    "version": "15.0.1.0.0",
     "maintainers": ["pesol"],
     "category": "Survey",
     "website": "https://github.com/OCA/survey",
@@ -13,4 +13,10 @@
     "installable": True,
     "depends": ["survey", "website"],
     "data": ["views/templates.xml"],
+    "assets": {
+        "web.assets_frontend": [
+            "survey_result_date_filter/static/src/js/survey_result.esm.js",
+            "survey_result_date_filter/static/src/css/style.css",
+        ],
+    },
 }

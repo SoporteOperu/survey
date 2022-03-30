@@ -1,53 +1,63 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <template
-        id="assets_frontend_result"
-        inherit_id="website.assets_frontend"
-        name="Survey Results assets"
-    >
-        <xpath expr="." position="inside">
-            <script
-                type="text/javascript"
-                src="/survey_result_date_filter/static/src/js/survey_result.js"
-            />
-        </xpath>
-    </template>
-    <template id="datetime" name="Datetime box">
-        <div class="input-group date">
-            <input
-                class="form-control"
-                id="datetimepicker"
-                data-date-format="YYYY-MM-DD"
-                type="text"
-                placeholder="YYYY-MM-DD"
-            />
-            <div class="input-group-text">
-                <i class="fa fa-calendar" />
-            </div>
-        </div>
-    </template>
-    <template
         id="survey_result_date_filter"
-        inherit_id="survey.result"
+        inherit_id="survey.survey_page_statistics_inner"
         name="Survey Result Date Filter"
     >
-        <xpath expr="//div[hasclass('jumbotron')]" position="after">
-            <div class="panel panel-default hidden-print date-range-filter">
-                <div class="card-header"><span
-                        class="fa fa-filter"
-                    />  Date Range Filters</div>
+        <xpath expr="//div[hasclass('o_survey_session_leaderboard')]" position="after">
+            <div
+                t-if="question_and_page_data"
+                class="card d-print-none overflow-visible"
+            >
+                <div class="card-header">
+                    <span class="fa fa-filter" />
+                    Date Range Filters
+                </div>
                 <div class="card-body form-inline">
-                    <div class='form-group' id='datetimepicker_from'>
-                        <span class="badge badge-secondary">Date From</span>
-                        <t t-call="survey_result_date_filter.datetime" />
+                    <div class="form-group">
+                        <span
+                            class="badge badge-secondary"
+                            for="datetimepicker_from"
+                        >Date From</span>
+                        <div
+                            class="input-group o_datepicker"
+                            data-target-input="nearest"
+                        >
+                            <input
+                                type="text"
+                                class="form-control o_datepicker_input o_input datetimepicker-input"
+                                id="datetimepicker_from"
+                                name="datetimepicker_from"
+                                data-toggle="datetimepicker"
+                                data-date-format="YYYY-MM-DD"
+                                placeholder="YYYY-MM-DD"
+                                t-attf-data-target="#datetimepicker_from"
+                            />
+                        </div>
                     </div>
-                    <div />
-                    <div class='form-group' id='datetimepicker_end'>
-                        <span class="badge badge-secondary">Date End</span>
-                        <t t-call="survey_result_date_filter.datetime" />
+                    <div class="form-group">
+                        <span
+                            class="badge badge-secondary"
+                            for="datetimepicker_end"
+                        >Date End</span>
+                        <div
+                            class="input-group o_datepicker"
+                            data-target-input="nearest"
+                        >
+                            <input
+                                type="text"
+                                class="form-control o_datepicker_input o_input datetimepicker-input"
+                                id="datetimepicker_end"
+                                name="datetimepicker_end"
+                                data-toggle="datetimepicker"
+                                data-date-format="YYYY-MM-DD"
+                                placeholder="YYYY-MM-DD"
+                                t-attf-data-target="#datetimepicker_end"
+                            />
+                        </div>
                     </div>
-                    <div />
-                    <div class='form-group'>
+                    <div class="form-group">
                         <span
                             id="filter_date"
                             class="filter_date btn btn-primary"
